@@ -3,7 +3,7 @@
 
 def solution(A, B):
     I = 0
-    P = 0
+    P = -1
     result = []
     N = len(A)
     if N<=1: return N
@@ -14,16 +14,12 @@ def solution(A, B):
         if A[I] <= P:
             I = I + 1
             continue
-            
-        if(I>=N):
-            break
 
         if I+1 >= N:
             result.append(I)
             break
 
-
-        if ((A[I] <= A[I+1] and A[I+1] <= B[I]) or (A[I+1] <= A[I] and A[I] <= B[I+1])) and True:
+        if (A[I] <= A[I+1] and A[I+1] <= B[I]) or (A[I+1] <= A[I] and A[I] <= B[I+1]):
             if B[I+1] >= B[I]:
                 result.append(I)
                 P = B[I]
